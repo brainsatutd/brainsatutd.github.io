@@ -286,10 +286,9 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--utd-white);
 }
 
-/*--------------------------------------------------------------
-# Mobile Navigation
---------------------------------------------------------------*/
-
+/**
+* Mobile Navigation 
+*/
 .mobile-nav-toggle {
   position: fixed;
   right: 15px;
@@ -317,11 +316,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .mobile-nav-active #header {
   left: 0;
-}
-
-.mobile-nav-active .mobile-nav-toggle {
-  background: var(--utd-orange);
-  transform: rotate(90deg);
 }
 /*--------------------------------------------------------------
 # Hero Section
