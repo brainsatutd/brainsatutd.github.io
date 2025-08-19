@@ -186,9 +186,8 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-/**
-* Desktop Navigation 
-*/
+
+/* General Navigation Styles */
 .nav-menu {
   padding: 0;
   display: block;
@@ -210,10 +209,10 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a:focus {
   display: flex;
   align-items: center;
-  justify-content: center; /* keep icon centered */
+  justify-content: center;
   color: var(--utd-gray);
   font-size: 20px;
-  border-radius: 50%; /* makes it round */
+  border-radius: 50%;
   background: var(--utd-light-gray);
   height: 56px;
   width: 56px;
@@ -222,6 +221,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   border: 2px solid transparent;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .nav-menu a::before {
@@ -236,22 +236,26 @@ h1, h2, h3, h4, h5, h6 {
   z-index: -1;
 }
 
-.nav-menu a i,
-.nav-menu a:focus i {
+.nav-menu a i {
   transition: all 0.3s ease;
+  font-size: 22px;
 }
 
-/* Desktop only (icons only) */
+.nav-menu a span {
+  margin-left: 8px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Desktop only (icons only, hide text) */
 @media (min-width: 992px) {
   .nav-menu a span {
-    display: none; /* hide text */
+    display: none; /* hide text on desktop */
   }
 
   .nav-menu a {
     width: 56px;
     height: 56px;
-    display: flex;
-    align-items: center;
     justify-content: center;
   }
 }
@@ -282,9 +286,10 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--utd-white);
 }
 
-/**
-* Mobile Navigation 
-*/
+/*--------------------------------------------------------------
+# Mobile Navigation
+--------------------------------------------------------------*/
+
 .mobile-nav-toggle {
   position: fixed;
   right: 15px;
