@@ -187,7 +187,13 @@ h1, h2, h3, h4, h5, h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 
-/* General Navigation Styles */
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
 .nav-menu {
   padding: 0;
   display: block;
@@ -212,7 +218,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   color: var(--utd-gray);
   font-size: 20px;
-  border-radius: 50%;
+  border-radius: 50%;             /* keeps perfect circle */
   background: var(--utd-light-gray);
   height: 56px;
   width: 56px;
@@ -221,74 +227,65 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   border: 2px solid transparent;
   transition: all 0.3s ease;
-  text-decoration: none;
 }
 
+/* Gradient overlay for fade effect */
 .nav-menu a::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
+  inset: 0;                       /* shorthand for top/right/bottom/left:0 */
+  border-radius: 50%;
   background: var(--utd-gradient);
-  transition: left 0.3s ease;
+  opacity: 0;
+  transition: opacity 0.3s ease;  /* fade effect */
   z-index: -1;
 }
 
-.nav-menu a i {
-  transition: all 0.3s ease;
-  font-size: 22px;
+/* Icon styles */
+.nav-menu a i,
+.nav-menu a:focus i {
+  transition: transform 0.3s ease, color 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
-.nav-menu a span {
-  margin-left: 8px;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-/* Desktop only (icons only, hide text) */
+/* Desktop only (icons only) */
 @media (min-width: 992px) {
   .nav-menu a span {
-    display: none; /* hide text on desktop */
+    display: none; /* hide text labels */
   }
-
   .nav-menu a {
     width: 56px;
     height: 56px;
-    justify-content: center;
   }
 }
 
-/* Hover + Active States */
+/* Hover + Active States (consistent size) */
 .nav-menu a:hover,
 .nav-menu .active,
-.nav-menu .active:focus,
-.nav-menu li:hover > a {
+.nav-menu .active:focus {
   color: var(--utd-white);
-  background: transparent;
   border-color: var(--utd-orange);
-  transform: translateX(5px);
+  background: transparent; /* let ::before handle fill */
+  transform: none;         /* prevent shifting/jumping */
 }
 
 .nav-menu a:hover::before,
 .nav-menu .active::before,
-.nav-menu .active:focus::before,
-.nav-menu li:hover > a::before {
-  left: 0;
+.nav-menu .active:focus::before {
+  opacity: 1; /* fade in gradient */
 }
 
 .nav-menu a:hover i,
 .nav-menu .active i,
-.nav-menu .active:focus i,
-.nav-menu li:hover > a i {
+.nav-menu .active:focus i {
   transform: scale(1.1);
   color: var(--utd-white);
 }
 
-/**
-* Mobile Navigation 
-*/
+/*--------------------------------------------------------------
+# Mobile Navigation 
+--------------------------------------------------------------*/
 .mobile-nav-toggle {
   position: fixed;
   right: 15px;
@@ -317,6 +314,13 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-nav-active #header {
   left: 0;
 }
+
+.mobile-nav-active .mobile-nav-toggle {
+  background: var(--utd-orange);
+  transform: rotate(90deg);
+}
+
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
