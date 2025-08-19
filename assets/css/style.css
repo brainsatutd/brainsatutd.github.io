@@ -241,12 +241,18 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease;
 }
 
-/* Desktop only (icons only, fixed size) */
+/* Desktop only (icons only) */
 @media (min-width: 992px) {
-  .nav-menu a,
-  .nav-menu a:focus {
+  .nav-menu a span {
+    display: none; /* hide text */
+  }
+
+  .nav-menu a {
     width: 56px;
     height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
