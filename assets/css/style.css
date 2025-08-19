@@ -186,12 +186,6 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-
-/* Base = Mobile-first (pill w/ icon + text) */
 .nav-menu {
   padding: 0;
   display: block;
@@ -213,58 +207,87 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a:focus {
   display: flex;
   align-items: center;
-  gap: 10px;                      /* space between icon and text */
   color: var(--utd-gray);
-  font-size: 20px;
-  height: 56px;                   /* consistent control height */
-  width: 100%;                    /* fill sidebar on mobile */
-  padding: 0 16px;                /* make room for text */
-  border-radius: 28px;            /* pill shape */
-  background: var(--utd-light-gray);
-  border: 2px solid transparent;
-  position: relative;
-  overflow: hidden;
+  padding: 12px 20px;
+  margin-bottom: 8px;
   transition: all 0.3s ease;
-  text-decoration: none;
+  font-size: 15px;
+  border-radius: 25px;
+  background: var(--utd-light-gray);
+  height: 56px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid transparent;
 }
 
 .nav-menu a::before {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 0;
   left: -100%;
-  background: var(--utd-gradient); /* gradient wipe */
+  width: 100%;
+  height: 100%;
+  background: var(--utd-gradient);
   transition: left 0.3s ease;
   z-index: -1;
 }
 
-.nav-menu a i {
-  font-size: 22px;
-  transition: transform 0.3s ease, color 0.3s ease;
+.nav-menu a i,
+.nav-menu a:focus i {
+  font-size: 20px;
+  transition: all 0.3s ease;
 }
 
-.nav-menu a span {
-  font-size: 15px;
+.nav-menu a span,
+.nav-menu a:focus span {
+  padding: 0 5px 0 7px;
+  color: var(--utd-gray);
   font-weight: 500;
-  line-height: 1;
+  transition: all 0.3s ease;
 }
 
-/* Hover + Active (same on mobile & desktop) */
+/* ===== Desktop only (icons only) ===== */
+@media (min-width: 992px) {
+  .nav-menu a {
+    justify-content: center;  /* center icon in circle */
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .nav-menu a span {
+    display: none !important; /* hide text */
+  }
+
+  .nav-menu a i {
+    margin: 0;
+  }
+}
+
+/* Hover + Active States */
 .nav-menu a:hover,
 .nav-menu .active,
 .nav-menu .active:focus,
 .nav-menu li:hover > a {
   color: var(--utd-white);
-  background: transparent;        /* reveal gradient layer */
+  background: transparent;
   border-color: var(--utd-orange);
-  transform: translateX(5px);
 }
 
 .nav-menu a:hover::before,
 .nav-menu .active::before,
 .nav-menu .active:focus::before,
 .nav-menu li:hover > a::before {
-  left: 0;                        /* wipe in */
+  left: 0;
+}
+
+.nav-menu a:hover span,
+.nav-menu .active span,
+.nav-menu .active:focus span,
+.nav-menu li:hover > a span {
+  color: var(--utd-white);
 }
 
 .nav-menu a:hover i,
@@ -275,50 +298,42 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--utd-white);
 }
 
-/* Desktop only: icons only */
-@media (min-width: 992px) {
-  .nav-menu a span {
-    display: none !important; /* hide text labels */
-  }
-
-  .nav-menu a {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    background: var(--utd-light-gray);
-    transition: all 0.3s ease;
-  }
-
-  .nav-menu a::before {
-    content: '';
-    position: absolute;
-    inset: 0; /* shorthand for top:0; right:0; bottom:0; left:0 */
-    border-radius: 50%;
-    background: var(--utd-gradient);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-  }
-
-  .nav-menu a:hover::before,
-  .nav-menu .active::before {
-    opacity: 1; /* fade in without resizing */
-  }
-
-  .nav-menu a:hover,
-  .nav-menu .active {
-    color: var(--utd-white);
-    border-color: var(--utd-orange);
-    transform: none; /* remove translate/resize jank */
-  }
+/*--------------------------------------------------------------
+# Mobile Navigation (unchanged)
+--------------------------------------------------------------*/
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  background: var(--utd-gradient);
+  font-size: 24px;
+  transition: all 0.4s ease;
+  outline: none !important;
+  line-height: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 4px 15px rgba(241, 127, 41, 0.3);
 }
 
+.mobile-nav-toggle i {
+  color: var(--utd-white);
+}
 
+.mobile-nav-active {
+  overflow: hidden;
+}
+
+.mobile-nav-active #header {
+  left: 0;
+}
+
+.mobile-nav-active .mobile-nav-toggle {
+  background: var(--utd-orange);
+  transform: rotate(90deg);
+}
 
 
 /*--------------------------------------------------------------
