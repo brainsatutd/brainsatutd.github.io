@@ -960,10 +960,17 @@ section:nth-child(even) {
   padding: 0;
   margin: 0 0 40px 0;
 }
-#footer .col-lg-4 p {
-  margin: 5px 0;  /* tighter vertical spacing */
+#footer .contact-email {
+  display: block;
+  margin: 4px 0;                 /* tight vertical rhythm (cadence) */
+  font-style: normal;            /* undo footer italics for emails */
+  text-decoration: none;
+  color: var(--utd-white);
 }
 
+#footer .contact-email:hover {
+  text-decoration: underline;
+}
 #footer .social-links {
   margin: 0 0 40px 0;
 }
