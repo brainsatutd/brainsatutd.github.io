@@ -960,6 +960,9 @@ section:nth-child(even) {
   padding: 0;
   margin: 0 0 40px 0;
 }
+#footer .col-lg-4 p {
+  margin: 5px 0;  /* tighter vertical spacing */
+}
 
 #footer .social-links {
   margin: 0 0 40px 0;
