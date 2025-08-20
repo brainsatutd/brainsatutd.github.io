@@ -971,6 +971,10 @@ section:nth-child(even) {
 #footer .contact-email:hover {
   text-decoration: underline;
 }
+#footer .univ-name {
+  margin-top: 20px;   /* controlled gap */
+  margin-bottom: 0;   /* no extra space below */
+}
 #footer .social-links {
   margin: 0 0 40px 0;
 }
