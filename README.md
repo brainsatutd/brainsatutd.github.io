@@ -1,2 +1,2 @@
-# utdbrains.github.io
+# Welcome to BRAINS at UTD
 
