@@ -1,2 +1,2 @@
-# Welcome to BRAINS at UTD!
+# Welcome to CAIR - Comets AI Research
 
